@@ -18,6 +18,8 @@ app.get('/:room', (res, req) => {
   res.render('room', {roomName: req.params.room})
 })
 
+server.listen(3000)
+
 const users = {}
 
 io.on('connection', socket => {
