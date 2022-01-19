@@ -5,8 +5,8 @@ const io = require('socket.io')(server)
 
 app.set('views', '/views')
 app.set('view engine', 'ejs')
-app.set(express.static('public'))
-app.set(express.urlencoded({extended: true}))
+app.use(express.static('public'))
+app.use(express.urlencoded({extended: true}))
 
 const rooms = {}
 
