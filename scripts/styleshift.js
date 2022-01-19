@@ -117,7 +117,7 @@ function setDarkImageSources(DesktopMastheadImage, MobileMastheadImage, mainlogo
 {
     DesktopMastheadImage.src = "images/banner.png";
     MobileMastheadImage.src = "images/mobilebanner.png";
-    mainlogo.src = "images/icon.png";
+    mainlogo.src = "images/site_logo.png";
     //changeBike();
 }
 
