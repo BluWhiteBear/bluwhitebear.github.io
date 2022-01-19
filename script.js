@@ -1,3 +1,4 @@
+//URL was "https://localhost:3000"
 const socket = io('https://bluwhitebear.github.io:3000')
 const messageContainer = document.getElementById('message-container')
 const messageForm = document.getElementById('send-container')
