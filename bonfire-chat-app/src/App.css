@@ -1,38 +1,196 @@
+:root
+{
+  --foreground-color-1: #292d45;
+  --foreground-color-2: #161929;
+  --background-color-1: #5f6986;
+  --background-color-2: #1d2232;
+  --accent-color-1: #DB415B;
+  --accent-color-2: #303656;
+  --text-color-1: #eaeaf0;
+  --text-color-2: #333333;
+}
+
+#bannerWrapper {
+  position: fixed;
+  align-items: center;
+}
+
+#banner {
+width: 100%;
+border-radius: 0;
+}
+
+.AppWrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .App {
   text-align: center;
+  width: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.body {
+  background-color: #DB415B;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.App header {
+  background-color: rbga(0, 0, 0, 0);
+  height: 10vh;
+  min-height: 50px;
+  color: var(--text-color-1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 99;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App section {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  min-height: 100vh;
+  background-image: linear-gradient(
+    to bottom right,
+    var(--background-color-1),
+    var(--background-color-2)
+  );
+}
+
+main {
+  padding: 10px;
+  height: 80vh;
+  margin: 10vh 0 10vh;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #1e1e24;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent-color);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(133, 133, 133);
+}
+
+form {
+  height: 10vh;
+  position: fixed;
+  bottom: 0;
+  background-color: rgb(24, 23, 23);
+  width: 100%;
+  display: flex;
+  font-size: 1.5rem;
+}
+
+button {
+  border-radius: 10px;
+  background-color: var(--accent-color-1);
+  border: none;
   color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 1.25rem;
 }
 
-.App-link {
-  color: #61dafb;
+
+form button {
+  border-radius: 50%;
+  width: auto;
+  height: auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+input {
+  border-radius: 50px;
+  line-height: 1.5;
+  width: 100%;
+  font-size: 1.5rem;
+  background-color: var(--foreground-color-2);
+  color: var(--text-color-1);
+  outline: none;
+  border: none;
+  padding: 0 10px;
 }
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+.sign-in {
+  color: #282c34;
+  background: white;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+
+
+
+ul, li {
+  text-align: left;
+  list-style: none;
+}
+
+p {
+  max-width: 500px;
+  margin-bottom: 12px;
+  line-height: 24px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  position: relative;
+  text-align: center;
+  box-shadow: 0px 5px 10px rgba(1, 1, 1, 0.6);
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+
+.sent {
+  flex-direction: row-reverse;
+}
+
+.sent p {
+  color: var(--text-color-1);
+  background: var(--accent-color-1);
+  align-self: flex-end;
+}
+.received p {
+  color: var(--text-color-1);
+  background: var(--foreground-color-2);
+}
+
+img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 2px 5px;
+}
+
+#siteLogo {
+  width: 75px;
+  height: 75px;
+}
+
