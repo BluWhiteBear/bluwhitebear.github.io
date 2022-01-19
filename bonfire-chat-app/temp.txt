@@ -1,7 +1,0 @@
-  apiKey: "AIzaSyCNM_3n5wGFoo3Yuh7YVMn50-gwgIEN7B8",
-  authDomain: "bonfire-chat-app.firebaseapp.com",
-  projectId: "bonfire-chat-app",
-  storageBucket: "bonfire-chat-app.appspot.com",
-  messagingSenderId: "151574405203",
-  appId: "1:151574405203:web:f4a4a0a538087585d826a6",
-  measurementId: "G-4XVPNDKRT1"
