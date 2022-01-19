@@ -115,18 +115,18 @@ function setMintCSSVariables()
 //Applies Dark Theme img variants 
 function setDarkImageSources(DesktopMastheadImage, MobileMastheadImage, mainlogo)
 {
-    DesktopMastheadImage.src = "images/banner.png";
-    MobileMastheadImage.src = "images/mobilebanner.png";
-    mainlogo.src = "images/site_logo.png";
+    DesktopMastheadImage.src = "/blob/main/images/banner.png";
+    MobileMastheadImage.src = "/blob/main/images/mobilebanner.png";
+    mainlogo.src = "/blob/main/images/site_logo.png";
     //changeBike();
 }
 
 //Applies Dark Theme img variants 
 function setLightImageSources(DesktopMastheadImage, MobileMastheadImage, mainlogo)
 {
-    DesktopMastheadImage.src = "images/banner_light.png";
-    MobileMastheadImage.src = "images/mobilebanner_light.png";
-    mainlogo.src = "images/site_logo_light.png";
+    DesktopMastheadImage.src = "/blob/main/images/banner_light.png";
+    MobileMastheadImage.src = "/blob/main/images/mobilebanner_light.png";
+    mainlogo.src = "/blob/main/images/site_logo_light.png";
     //changeBike();
 }
 
