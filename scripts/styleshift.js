@@ -116,17 +116,17 @@ function setMintCSSVariables()
 function setDarkImageSources(DesktopMastheadImage, MobileMastheadImage, mainlogo)
 {
     DesktopMastheadImage.src = "images/banner.png";
-    MobileMastheadImage.src = "/images/mobilebanner.png";
-    mainlogo.src = "BluWhiteBear/bluwhitebear.github.io/blob/main/images/icon.png";
+    MobileMastheadImage.src = "images/mobilebanner.png";
+    mainlogo.src = "images/icon.png";
     //changeBike();
 }
 
 //Applies Dark Theme img variants 
 function setLightImageSources(DesktopMastheadImage, MobileMastheadImage, mainlogo)
 {
-    DesktopMastheadImage.src = "/images/banner_light.png";
-    MobileMastheadImage.src = "/images/mobilebanner_light.png";
-    mainlogo.src = "/images/site_logo_light.png";
+    DesktopMastheadImage.src = "images/banner_light.png";
+    MobileMastheadImage.src = "images/mobilebanner_light.png";
+    mainlogo.src = "images/site_logo_light.png";
     //changeBike();
 }
 
