@@ -37,6 +37,8 @@ function App() {
         <header>
           <div id="navWrapper">
             <a href="#"> <img className="img-fluid" id="siteLogo" src={logo} alt="Website logo" /> </a>
+            <img className='img-fluid desktop-only' id="banner" src={banner} alt="Website banner" />
+            <SignOut />
           </div>
         </header>
 
@@ -76,7 +78,7 @@ function SignOut() {
 function ChatRoom() {
   const dummy = useRef();
   const messagesRef = firestore.collection('messages');
-  const query = messagesRef.orderBy('createdAt').limit(25);
+  const query = messagesRef.orderBy('createdAt').limitToLast(25);
 
   const [messages] = useCollectionData(query, { idField: 'id' });
 
@@ -100,28 +102,17 @@ function ChatRoom() {
   }
 
   return (<>
-    <div id="bannerWrapper">
-      <img id="banner" src={banner} alt="Website banner" />
-      <SignOut />
-    </div>
-
     <main>
-      
-
       {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
-
       <span ref={dummy}></span>
-      
+    </main>
 
-      <form onSubmit={sendMessage}>
-
+    <form onSubmit={sendMessage}>
         <div className='inputWrapper'>
           <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="" />
-          <button className='sendButton' type="submit" disabled={!formValue}>💬</button>
+          <button className='sendButton' type="submit" disabled={!formValue}>&#128172;</button>
         </div>
-
       </form>
-    </main>
   </>)
 }
 

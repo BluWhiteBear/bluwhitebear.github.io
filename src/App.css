@@ -8,8 +8,21 @@
   --accent-color-2: #ED6470;
   --text-color-1: #eaeaf0;
   --text-color-2: #333333;
+}
 
-  overflow-y: hidden;
+html {
+  overflow-x: hidden;
+  background-color: var(--background-color-2);
+}
+
+@media (max-width: 991px) {
+    .mobile-only {
+        display:block !important;
+    }
+ 
+    .desktop-only {
+        display:none !important;
+    }
 }
 
 img {
@@ -24,16 +37,10 @@ img {
   height: 75px;
 }
 
-#bannerWrapper {
-  display: flex;
-  padding-top: auto;
-  position: relative;
-  align-items: center;
-}
-
 #banner {
-width: 100%;
-border-radius: 0;
+  width: 90%;
+  height: auto;
+  border-radius: 10px;
 }
 
 .AppWrapper {
@@ -49,7 +56,8 @@ border-radius: 0;
 }
 
 .chatWrapper {
-  width: 80%;
+  height: 100%;
+  width: 90%;
   margin: auto;
   padding-top: 10px;
 }
@@ -59,26 +67,27 @@ border-radius: 0;
 }
 
 #navWrapper {
+  width: 90%;
+  margin: auto;
   display: flex;
   align-items: center;
 }
 
 .App header {
+  margin-top: 20px;
   height: 10vh;
   min-height: 50px;
   color: var(--text-color-1);
   position: fixed;
   width: 100%;
   top: 0;
-  align-items: center;
-  justify-content: space-between;
   z-index: 99;
-  padding: 10px;
-  box-sizing: border-box;
 }
 
 .App section {
   display: flex;
+  width: 100%;
+  height: 100%;
   flex-direction: column;
   justify-content: center;
   min-height: 100vh;
@@ -91,8 +100,8 @@ border-radius: 0;
 
 main {
   padding: 10px;
-  height: 80vh;
-  margin: 1vh 0 10vh;
+  height: 70vh;
+  margin: 8vh 0 1vh;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
@@ -140,23 +149,19 @@ button {
   );
   border: none;
   color: white;
-  padding: 2px 20px;
   text-align: center;
-  text-decoration: none;
-  display: inline-block;
   cursor: pointer;
   font-size: 1.25rem;
 }
 
 .inputWrapper {
-  padding-top: 20px;
   width: 100%;
   display: flex;
-  align-items: center;
 }
 
 input {
   width: 100%;
+  height: 50px;
   border-radius: 50px;
   line-height: 1.5;
   font-size: 1.5rem;
@@ -164,8 +169,6 @@ input {
   color: var(--text-color-1);
   outline: none;
   border: none;
-  padding: 0 10px;
-  display: block;
   margin-left: auto;
   margin-right: auto;
 }
@@ -179,6 +182,7 @@ button:disabled {
   border-radius: 50%;
   width: 50px;
   height: 50px;
+  text-align: center;
 }
 
 .sign-in {
