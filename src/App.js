@@ -11,6 +11,7 @@ import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 import logo from './images/site_logo.png';
 import banner from './images/banner.png';
+import noticiationSound from './sounds/bonfire_notification_2.wav'
 
 firebase.initializeApp({
   apiKey: "AIzaSyCNM_3n5wGFoo3Yuh7YVMn50-gwgIEN7B8",
@@ -70,7 +71,7 @@ function SignIn() {
 
 function SignOut() {
   return auth.currentUser && (
-    <button className="sign-out" onClick={() => auth.signOut()}>Sign Out</button>
+    <button className="sign-out" onClick={() => auth.signOut()}>&#8688;</button>
   )
 }
 
@@ -84,21 +85,25 @@ function ChatRoom() {
 
   const [formValue, setFormValue] = useState('');
 
+  
+
 
   const sendMessage = async (e) => {
     e.preventDefault();
 
-    const { uid, photoURL } = auth.currentUser;
+    const { uid, photoURL, userName } = auth.currentUser;
 
     await messagesRef.add({
       text: formValue,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       uid,
-      photoURL
+      photoURL,
+      userName: auth.currentUser.displayName,
     })
 
     setFormValue('');
     dummy.current.scrollIntoView({ behavior: 'smooth' });
+    console.log("user: " + auth.currentUser);
   }
 
   return (<>
@@ -118,15 +123,28 @@ function ChatRoom() {
 
 
 function ChatMessage(props) {
-  const { text, uid, photoURL } = props.message;
-
+  const { text, uid, photoURL, userName, createdAt } = props.message;
   const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
 
   return (<>
     <div className={`message ${messageClass}`}>
       <img src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} />
-      <p>{text}</p>
+      <p>
+        <b>{userName}</b>
+        <br/>
+        {text}
+      </p>
     </div>
+  </>)
+}
+
+function EmojiKeyboard()
+{
+
+  return (<>
+  <div className="emojiKeyboardWrapper">
+
+  </div>
   </>)
 }
 

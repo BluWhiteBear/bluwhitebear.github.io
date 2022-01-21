@@ -39,7 +39,6 @@ img {
 
 #banner {
   width: 90%;
-  height: auto;
   border-radius: 10px;
 }
 
@@ -151,7 +150,7 @@ button {
   color: white;
   text-align: center;
   cursor: pointer;
-  font-size: 1.25rem;
+  font-size: 2.3rem;
 }
 
 .inputWrapper {
@@ -183,6 +182,7 @@ button:disabled {
   width: 50px;
   height: 50px;
   text-align: center;
+  font-size: 1.5rem;
 }
 
 .sign-in {
@@ -218,7 +218,6 @@ p {
 .message {
   display: flex;
   align-items: center;
-  font-weight: bold;
 }
 
 
@@ -234,9 +233,11 @@ p {
     var(--accent-color-2)
   );
   align-self: flex-end;
+  text-align: right;
 }
 .received p {
   color: var(--text-color-1);
   background: var(--foreground-color-2);
+  text-align: left;
 }
 
