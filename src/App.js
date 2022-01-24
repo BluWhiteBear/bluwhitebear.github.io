@@ -10,7 +10,6 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 import logo from './images/site_logo.png';
-import banner from './images/banner.png';
 import noticiationSound from './sounds/bonfire_notification_2.wav'
 
 firebase.initializeApp({
@@ -38,7 +37,9 @@ function App() {
         <header>
           <div id="navWrapper">
             <a href="#"> <img className="img-fluid" id="siteLogo" src={logo} alt="Website logo" /> </a>
-            <img className='img-fluid desktop-only' id="banner" src={banner} alt="Website banner" />
+            <div className='desktop-only' id="banner">
+              <h1 id="site-name">Bonfire</h1>
+            </div>
             <SignOut />
           </div>
         </header>
@@ -71,7 +72,7 @@ function SignIn() {
 
 function SignOut() {
   return auth.currentUser && (
-    <button className="sign-out" onClick={() => auth.signOut()}>&#8688;</button>
+    <button className="sign-out" onClick={() => auth.signOut()}>X</button>
   )
 }
 
@@ -112,9 +113,12 @@ function ChatRoom() {
       <span ref={dummy}></span>
     </main>
 
+    <EmojiKeyboard/>
+
     <form onSubmit={sendMessage}>
         <div className='inputWrapper'>
-          <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="" />
+          <input id ='keyboardInput' value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="" />
+          <button className='emojiKeyboard desktop-only' type='button' onClick={() => DisplayEmojiKeyboard()}>+</button>
           <button className='sendButton' type="submit" disabled={!formValue}>&#128172;</button>
         </div>
       </form>
@@ -138,12 +142,95 @@ function ChatMessage(props) {
   </>)
 }
 
+function DisplayEmojiKeyboard()
+{
+  if(document.getElementById('emojiKeyboard').style.display != 'none')
+  {
+    document.getElementById('emojiKeyboard').style.display = 'none';
+  }
+  else
+  {
+    document.getElementById('emojiKeyboard').style.display = 'block';
+  }
+}
+
 function EmojiKeyboard()
 {
-
   return (<>
-  <div className="emojiKeyboardWrapper">
-
+  <div id="emojiKeyboard">
+    Emojis
+    <div className='emojiRow'>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[0].innerHTML}>😂</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[1].innerHTML}>❤️</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[2].innerHTML}>😊</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[3].innerHTML}>🤣</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[4].innerHTML}>🙏</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[5].innerHTML}>💕</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[6].innerHTML}>😲</button></div>
+    </div>
+    <div className='emojiRow'>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[7].innerHTML}>👍</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[8].innerHTML}>😭</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[9].innerHTML}>😘</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[10].innerHTML}>😒</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[11].innerHTML}>👌</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[12].innerHTML}>😌</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[13].innerHTML}>😩</button></div>
+    </div>
+    <div className='emojiRow'>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[14].innerHTML}>😏</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[15].innerHTML}>😁</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[16].innerHTML}>😳</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[17].innerHTML}>🙌</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[18].innerHTML}>💁</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[19].innerHTML}>🙈</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[20].innerHTML}>😔</button></div>
+    </div>
+    <div className='emojiRow'>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[21].innerHTML}>😎</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[22].innerHTML}>✌️</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[23].innerHTML}>😑</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[24].innerHTML}>😋</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[25].innerHTML}>😜</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[26].innerHTML}>🎵</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[27].innerHTML}>😞</button></div>
+    </div>
+    <div className='emojiRow'>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[28].innerHTML}>👀</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[29].innerHTML}>✋</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[30].innerHTML}>😊</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[31].innerHTML}>😴</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[32].innerHTML}>👏</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[33].innerHTML}>😉</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[34].innerHTML}>😕</button></div>
+    </div>
+    <div className='emojiRow'>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[35].innerHTML}>💯</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[36].innerHTML}>😢</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[37].innerHTML}>😐</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[38].innerHTML}>🥵</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[39].innerHTML}>😩</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[40].innerHTML}>😱</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[41].innerHTML}>💔</button></div>
+    </div>
+    <div className='emojiRow'>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[42].innerHTML}>💋</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[43].innerHTML}>💜</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[44].innerHTML}>😪</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[45].innerHTML}>💙</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[46].innerHTML}>😝</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[47].innerHTML}>😅</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[48].innerHTML}>👊</button></div>
+    </div>
+    <div className='emojiRow'>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[49].innerHTML}>😤</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[50].innerHTML}>😢</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[51].innerHTML}>😆</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[52].innerHTML}>😀</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[53].innerHTML}>👿</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[54].innerHTML}>✔️</button></div>
+      <div className='emojiWrapper'><button className='emoji' onClick={() => document.getElementById('keyboardInput').value += document.getElementsByClassName('emoji')[55].innerHTML}>🔫</button></div>
+    </div>
   </div>
   </>)
 }
